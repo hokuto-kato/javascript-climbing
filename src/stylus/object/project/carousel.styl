@@ -1,0 +1,39 @@
+.p-carousel
+	border: 1px solid #ccc
+	padding: 20px
+	display: flex
+	flex-direction: column
+	align-items: center
+	&__box
+		display flex
+		width: 300px
+		height: 300px
+		overflow: hidden
+		position: relative
+	&__item
+		list-style none
+		position: absolute
+		top: 0
+		left: 0
+		display: none
+		&.is-active
+			display: block
+	&__nav
+		display: flex
+		margin-top: 20px
+		width: 300px
+		&__item
+			list-style none
+			flex 1
+			&:first-child
+				justify-content: flex-start
+				margin-right: 10px
+			&:nth-child(2)
+				text-align: right
+				margin-left: 10px
+		&__btn
+			font-size: 3rem
+			border: 1px solid #ccc
+			padding: 5px
+			width: 60px
+			height: 60px

@@ -1,0 +1,30 @@
+-
+	var domain = './'
+	var imgSrc = './img/'
+	var description = 'foo'
+	var keywords = 'foo'
+	var title = 'foo'
+	var date = +new Date()
+
+doctype html
+html(lang='ja')
+	head
+		include include/_meta
+		include include/_ogp
+		include include/_title
+		include include/_css
+	body
+		.p-carousel
+			ul.p-carousel__box
+				li.p-carousel__item.is-active
+					img.p-carousel__body(src="https://fakeimg.pl/150x150/?retina=1&text=1%E6%9E%9A%E7%9B%AE&font=noto")
+				li.p-carousel__item
+					img.p-carousel__body(src="https://fakeimg.pl/150x150/?retina=1&text=2%E6%9E%9A%E7%9B%AE&font=noto")
+				li.p-carousel__item
+					img.p-carousel__body(src="https://fakeimg.pl/150x150/?retina=1&text=3%E6%9E%9A%E7%9B%AE&font=noto")
+			ul.p-carousel__nav
+				li.p-carousel__nav__item
+					button.p-carousel__nav__btn.prev(type="button") <
+				li.p-carousel__nav__item
+					button.p-carousel__nav__btn.next(type="button") >
+		include include/_js
