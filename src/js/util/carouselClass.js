@@ -1,15 +1,15 @@
 import $ from 'jquery'
 
-//todo class構文の時、存在判定はどうすれば？
-
 export default class {
-	// 土台となるclassを準備して、最初に実行される処理であるconstructorをセットする
+	// 土台となるclassを準備
+	// 最初に実行される処理であるconstructorをセット
 	constructor() {
+		if(!$('.p-carousel').length) return;
 		this.current = 1;
 		this.num = $('.p-carousel__box li').length;
 	}
 
-	//methodを用意する
+	//methodを用意
 	init(){
 		this.next();
 		this.prev();
