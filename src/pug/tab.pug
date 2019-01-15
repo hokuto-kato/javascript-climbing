@@ -1,0 +1,43 @@
+-
+	var domain = './'
+	var imgSrc = './img/'
+	var description = 'foo'
+	var keywords = 'foo'
+	var title = 'foo'
+	var date = +new Date()
+
+doctype html
+html(lang='ja')
+	head
+		include include/_meta
+		include include/_ogp
+		include include/_title
+		include include/_css
+	body
+		.p-tab#tab1
+			ul.p-tab__nav
+				li.p-tab__nav__item.is-active タブ1
+				li.p-tab__nav__item タブ2
+				li.p-tab__nav__item タブ3
+			ul.p-tab__body
+				li.p-tab__body__item.is-active
+					p.p-tab__body__content タブ1の内容。タブ1の内容。タブ1の内容。タブ1の内容。タブ1の内容。タブ1の内容。タブ1の内容。
+				li.p-tab__body__item
+					p.p-tab__body__content タブ2の内容。タブ2の内容。タブ2の内容。タブ2の内容。タブ2の内容。タブ2の内容。タブ2の内容。
+				li.p-tab__body__item
+					p.p-tab__body__content タブ3の内容。タブ3の内容。タブ3の内容。タブ3の内容。タブ3の内容。タブ3の内容。タブ3の内容。
+					
+		.p-tab#tab2
+			ul.p-tab__nav
+				li.p-tab__nav__item.is-active タブ1
+				li.p-tab__nav__item タブ2
+				li.p-tab__nav__item タブ3
+			ul.p-tab__body
+				li.p-tab__body__item.is-active
+					p.p-tab__body__content タブ1の内容。タブ1の内容。タブ1の内容。タブ1の内容。タブ1の内容。タブ1の内容。タブ1の内容。
+				li.p-tab__body__item
+					p.p-tab__body__content タブ2の内容。タブ2の内容。タブ2の内容。タブ2の内容。タブ2の内容。タブ2の内容。タブ2の内容。
+				li.p-tab__body__item
+					p.p-tab__body__content タブ3の内容。タブ3の内容。タブ3の内容。タブ3の内容。タブ3の内容。タブ3の内容。タブ3の内容。
+		
+		include include/_js

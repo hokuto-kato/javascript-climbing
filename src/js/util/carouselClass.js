@@ -1,42 +1,58 @@
-import $ from 'jquery'
-
 export default class {
 	// 土台となるclassを準備
 	// 最初に実行される処理であるconstructorをセット
-	constructor() {
-		if(!$('.p-carousel').length) return;
-		this.current = 1;
-		this.num = $('.p-carousel__box li').length;
+
+	//model
+	constructor($root) {
+		this.$root = $root;
+		this.$item = $root.find('.p-carousel__item');
+		this.$next = $root.find('.next');
+		this.$prev = $root.find('.prev');
+		this.num = this.$item.length;
+		this.current = 0;
+
+		this.handleEvent();
 	}
 
-	//methodを用意
-	init(){
-		this.next();
-		this.prev();
+	increment() {
+		if(this.current === (this.num - 1)) {
+			this.current = 0;
+		} else {
+			this.current++;
+		}
 	}
+
+	decrement() {
+		if(this.current === 0) {
+			this.current = this.num - 1;
+		} else {
+			this.current--;
+		}
+	}
+
 	next() {
-		$('.next').on('click', () => {
-			console.log(this.current,this.num);
-			$('.p-carousel__box li').removeClass('is-active');
-			if(this.current === this.num) {
-				$('.p-carousel__box li').eq(0).addClass('is-active');
-				this.current = 1;
-			} else {
-				this.current++;
-				$('.p-carousel__box li').eq(this.current - 1).addClass('is-active');
-			}
-		});
+		this.increment();
+		this.displaySlide();
 	}
+
 	prev() {
-		$('.prev').on('click', () => {
-			$('.p-carousel__box li').removeClass('is-active');
-			if(this.current === 1) {
-				$('.p-carousel__box li').eq(this.num - 1).addClass('is-active');
-				this.current = this.num;
-			} else {
-				this.current--;
-				$('.p-carousel__box li').eq(this.current - 1).addClass('is-active');
-			}
+		this.decrement();
+		this.displaySlide();
+	}
+
+	//view
+	displaySlide() {
+		this.$item.removeClass('is-active');
+		this.$item.eq(this.current).addClass('is-active');
+	}
+
+	//event
+	handleEvent() {
+		this.$next.on('click', () => {
+			this.next()
+		});
+		this.$prev.on('click', () => {
+			this.prev()
 		});
 	}
 }

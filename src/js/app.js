@@ -1,11 +1,10 @@
 import $ from 'jquery';
-// import carousel from './util/carousel'
 import carouselClass from './util/carouselClass'
+import tab from './util/tab'
 import stopWatch from './util/stopWatch'
 
-const carousel = new carouselClass();
+// new carouselClass($("#carousel1"));
+// new carouselClass($("#carousel2"));
 
-$(() => {
-	stopWatch();
-	carousel.init();
-});
+new tab($('#tab1'));
+new tab($('#tab2'));

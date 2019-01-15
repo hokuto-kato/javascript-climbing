@@ -1,0 +1,26 @@
+.p-tab
+	&:nth-of-type(n+2)
+		margin-top: 30px
+	&__nav
+		display: flex
+		&__item
+			list-style none
+			border: 1px solid #ccc
+			padding: 20px
+			font-size: 2rem
+			width: 100px
+			cursor pointer
+			&.is-active
+				background-color: #000
+				color: #fff
+			
+	&__body
+		position: relative
+		&__item
+			display: none
+			width: 300px
+			padding: 20px
+			font-size: 2rem
+			border: 1px solid #ccc
+			&.is-active
+				display: block
