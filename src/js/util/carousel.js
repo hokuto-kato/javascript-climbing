@@ -34,7 +34,7 @@ export default function() {
 				}
 			});
 		}
-	}
+	};
 
 	carousel.init()
 }
