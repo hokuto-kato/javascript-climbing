@@ -12,12 +12,15 @@ export default class {
 
 	//view
 	countUp() {
-		$(this.currentStartBtn).attr('disabled','disabled');
+		this.startBtn.attr('disabled','disabled');
+		this.numTarget.text(0);
+		this.num = 0;
 		this.intervalId = setInterval(() => {
 			this.numTarget.text(this.num++);
 		}, 1000);
 	}
 	countStop(){
+		this.startBtn.removeAttr('disabled');
 		clearInterval(this.intervalId);
 	}
 
@@ -25,8 +28,10 @@ export default class {
 	handleEvent() {
 		if(!$('.p-stopwatch').length) return;
 		this.startBtn.on('click', (e) => {
-			this.currentStartBtn = e.currentTarget;
 			this.countUp();
+		});
+		this.stopBtn.on('click', (e) => {
+			this.countStop();
 		});
 	}
 }
