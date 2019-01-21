@@ -1,6 +1,7 @@
 .p-form
 	width: 670px
 	margin: 0 auto
+	padding-top: 50px
 	&__box
 		display: flex
 		&:nth-child(n+2)
@@ -62,6 +63,34 @@
 		font-size: 1.4rem
 		padding: 0 25px
 		font-weight: bold
+		transition all .2s ease-out
+		&.is-active
+			background: #4abfdb
+			border-bottom: 3px solid #388fa3
+			color: #fff
+			hover()
 		&__wrap
 			margin-top: 15px
 			padding-left: 140px
+			display: flex
+			justify-content: center
+	&__error
+		padding-left: 140px
+		&__body
+			font-size: 1.4rem
+			color: #d00e31
+			font-weight: bold
+			display: none
+	&__complete
+		width: 100vw
+		height: 100vh
+		justify-content: center
+		align-items: center
+		display: flex
+		&__body
+			font-size: 5rem
+			font-weight: bold
+			color: #272727
+			display: flex
+		&__icon
+			margin-left: 10px

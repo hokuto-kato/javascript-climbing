@@ -14,22 +14,25 @@ html(lang='ja')
 		include include/_title
 		include include/_css
 	body
-		form.p-form(method="post")
+		form#form1.p-form(method="get" action="./complete.html")
+			.p-form__error
+				p.p-form__error__body(data-target-titleError) ※タイトルが無効です
+				p.p-form__error__body(data-target-bodyError) ※本文が無効です
 			dl.p-form__box
 				dt.p-form__ttl
 					p.p-form__ttl__body
 						span.p-form__ttl__body__text タイトル
 						span.p-form__ttl__body__required 必須
 				dd.p-form__data
-					input.p-form__input(type="text" name="title" placeholder="タイトルを入力してください")
+					input.p-form__input(type="text" name="title" placeholder="タイトルを入力してください" required)
 			dl.p-form__box
 				dt.p-form__ttl
 					p.p-form__ttl__body.u-textarea
 						span.p-form__ttl__body__text 本文
 						span.p-form__ttl__body__required 必須
 				dd.p-form__data
-					textarea.p-form__textarea(name="body" placeholder="本文を入力してください")
+					textarea.p-form__textarea(name="body" placeholder="本文を入力してください" required)
 			.p-form__submit__wrap
-				button.p-form__submit(type="submit") 送信する
+				button.p-form__submit(type="submit" data-target-submit disabled) 送信する
 		
 		include include/_js

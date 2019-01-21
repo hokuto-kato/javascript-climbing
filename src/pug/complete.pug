@@ -1,0 +1,22 @@
+-
+	var domain = './'
+	var imgSrc = './img/'
+	var description = 'form'
+	var keywords = 'form'
+	var title = 'form'
+	var date = +new Date()
+
+doctype html
+html(lang='ja')
+	head
+		include include/_meta
+		include include/_ogp
+		include include/_title
+		include include/_css
+	body
+		.p-form__complete
+			p.p-form__complete__body
+				|送信しました
+				span.p-form__complete__icon ✉️
+		
+		include include/_js
