@@ -1,9 +1,9 @@
 -
 	var domain = './'
 	var imgSrc = './img/'
-	var description = 'foo'
-	var keywords = 'foo'
-	var title = 'foo'
+	var description = 'Stop Watch'
+	var keywords = 'Stop Watch'
+	var title = 'Stop Watch'
 	var date = +new Date()
 
 doctype html
@@ -14,7 +14,15 @@ html(lang='ja')
 		include include/_title
 		include include/_css
 	body
-		.p-stopwatch
+		#stopWatch1.p-stopwatch
+			.p-stopwatch__num 0
+				
+			ul.p-stopwatch__nav
+				li.p-stopwatch__nav__item
+					button.p-stopwatch__nav__btn.start(type="button") スタート
+				li.p-stopwatch__nav__item
+					button.p-stopwatch__nav__btn.stop(type="button") ストップ
+		#stopWatch2.p-stopwatch
 			.p-stopwatch__num 0
 				
 			ul.p-stopwatch__nav

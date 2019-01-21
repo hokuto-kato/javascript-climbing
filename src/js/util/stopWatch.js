@@ -2,7 +2,6 @@ import $ from 'jquery'
 
 export default function() {
 	if(!$('.p-stopwatch').length) return;
-	
 	const stopWatch = {
 			num: $('.p-stopwatch__num').text(),
 			intervalId: null,
@@ -23,17 +22,16 @@ export default function() {
 			},
 			stop: function() {
 				$('.stop').on('click', () => {
-					this.status = "ready"
+					this.status = "ready";
 					clearInterval(this.intervalId);
 				});
 			},
 			countUp: function(num) {
-				if (this.status !== "ready") return
+				if (this.status !== "ready") return;
 				this.intervalId = setInterval(() => {
 					$('.p-stopwatch__num').text(num++);
 				}, 1000);
 			}
 		};
-		
 		stopWatch.init();
 }
