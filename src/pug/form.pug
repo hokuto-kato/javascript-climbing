@@ -15,9 +15,7 @@ html(lang='ja')
 		include include/_css
 	body
 		form#form1.p-form(method="get" action="./complete.html")
-			.p-form__error
-				p.p-form__error__body(data-target-titleError) ※タイトルが無効です
-				p.p-form__error__body(data-target-bodyError) ※本文が無効です
+			.p-form__error(data-target-error)
 			dl.p-form__box
 				dt.p-form__ttl
 					p.p-form__ttl__body

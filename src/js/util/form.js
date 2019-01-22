@@ -4,78 +4,66 @@ export default class {
 	//model
 	constructor(root) {
 		this.root = root;
+		this.title = '';
+		this.titleMaxLength = 15;
+		this.titleMinLength = 1;
+		this.body = '';
+		this.bodyMaxLength = 30;
+		this.bodyMinLength = 1;
+		this.errors = [];
+
 		this.title = root.find($('[name="title"]'));
 		this.body = root.find($('[name="body"]'));
 		this.submit = root.find($('[data-target-submit]'));
-		this.titleError = root.find($('[data-target-titleError]'));
-		this.bodyError = root.find($('[data-target-bodyError]'));
-		this.inputLength = root.find($('input,textarea')).length;
+		this.$errors = root.find($('[data-target-error]'));
 		this.handleEvent();
 	}
 
-	titleValidate() {
-		if(this.titleLength > 0 && this.titleLength <= 15) {
-			this.titleValid();
-		} else {
-			this.titleInValid();
+	isValid() {
+		this.errors = [];
+
+		if(!this.isValidTitle()) {
+			this.errors.push(`タイトルは${this.titleMinLength}文字以上、${this.titleMaxLength}文字以下でご入力ください`);
 		}
+
+		if(!this.isValidBody()) {
+			this.errors.push(`本文は${this.bodyMinLength}文字以上、${this.bodyMaxLength}文字以下でご入力ください`);
+		}
+
+		return this.errors.length === 0
 	}
 
-	bodyValidate() {
-		if(this.bodyLength > 0 && this.bodyLength <= 30) {
-			this.bodyValid();
-		} else {
-			this.bodyInValid();
-		}
+	isValidTitle() {
+		return (this.title.length >= this.titleMinLength) && (this.title.length <= this.titleMaxLength);
 	}
 
-	validCheck() {
-		this.validLength = this.root.find('.is-valid').length;
-		if(this.inputLength === this.validLength) {
-			this.submitValid();
-		} else {
-			this.submitInValid();
-		}
+	isValidBody() {
+		return (this.body.length >= this.bodyMinLength) && (this.body.length <= this.bodyMaxLength);
 	}
 
 	//view
-	titleInValid() {
-		this.titleError.fadeIn('fast', 'swing');
-		this.title.removeClass('is-valid');
+	submitValid() {
 	}
 
-	titleValid() {
-		this.titleError.fadeOut('fast', 'swing');
-		this.title.addClass('is-valid');
-	}
-
-	bodyInValid() {
-		this.bodyError.fadeIn('fast', 'swing');
-		this.body.removeClass('is-valid');
-	}
-
-	bodyValid() {
-		this.bodyError.fadeOut('fast', 'swing');
-		this.body.addClass('is-valid');
-	}
-	submitValid(){
-		this.submit.addClass('is-active').removeAttr('disabled');
-	}
-	submitInValid(){
-		this.submit.removeClass('is-active').attr('disabled');
+	displayErrors() {
+		$(this.$errors).html("");
+		if(this.isValid()) return;
+		$(this.errors).each((index, val) => {
+			$(this.$errors).append(`<p class="p-form__error__body">${val}</p>`);
+		});
 	}
 
 	//event
 	handleEvent() {
-		this.title.on('input focusout', () => {
-			this.titleLength = this.title.val().length;
-			this.titleValidate();
-			this.validCheck();
+		this.title.on('keyup', (e) => {
+			this.title = $(e.currentTarget).val();
+			this.displayErrors();
+			this.submitValid();
 		});
-		this.body.on('input focusout', () => {
-			this.bodyLength = this.body.val().length;
-			this.bodyValidate();
-			this.validCheck();
+		this.body.on('keyup', (e) => {
+			this.body = $(e.currentTarget).val();
+			this.displayErrors();
+			this.submitValid();
 		});
 	}
 }
