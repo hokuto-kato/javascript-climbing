@@ -14,7 +14,7 @@ html(lang='ja')
 		include include/_title
 		include include/_css
 	body
-		form#form1.p-form(method="get" action="./complete.html")
+		form#form1.p-form(method="get" action="./form_complete.html")
 			.p-form__error(data-target-error)
 			dl.p-form__box
 				dt.p-form__ttl
@@ -22,15 +22,25 @@ html(lang='ja')
 						span.p-form__ttl__body__text タイトル
 						span.p-form__ttl__body__required 必須
 				dd.p-form__data
-					input.p-form__input(type="text" name="title" placeholder="タイトルを入力してください" required)
+					input.p-form__input(type="text" name="title" placeholder="タイトルを入力してください" data-target-title required)
 			dl.p-form__box
 				dt.p-form__ttl
 					p.p-form__ttl__body.u-textarea
 						span.p-form__ttl__body__text 本文
 						span.p-form__ttl__body__required 必須
 				dd.p-form__data
-					textarea.p-form__textarea(name="body" placeholder="本文を入力してください" required)
+					textarea.p-form__textarea(name="body" placeholder="本文を入力してください" data-target-body required)
+			dl.p-form__box
+				dt.p-form__ttl
+					p.p-form__ttl__body.u-checkbox
+						span.p-form__ttl__body__text チェックボックス
+						span.p-form__ttl__body__required 必須
+				dd.p-form__data(data-target-check)
+					-for(var i =0; i < 3; i++)
+						label.p-form__check__wrap(for="check" + (i + 1))
+							p.p-form__check__body チェックボックス#{i  +1}
+							input.p-form__check__input(id="check" + (i + 1) type="checkbox" name="check")
 			.p-form__submit__wrap
 				button.p-form__submit(type="submit" data-target-submit disabled) 送信する
-		
+
 		include include/_js

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="description" content="form">
+    <meta name="keywords" content="form">
+    <!-- Facebook-->
+    <!--WEBサイトのURL-->
+    <meta property="og:url" content="http://foo.bar/">
+    <!--WEBサイトのタイトル。Twitter Cardでも併用。-->
+    <meta property="og:title" content="form">
+    <!--WEBサイトのdescription。Twitter Cardでも併用。-->
+    <meta property="og:description" content="form">
+    <!--TOPページなら'website'。下層ページや記事ページなら'article'。-->
+    <meta property="og:type" content="website">
+    <!--画像URL-->
+    <meta property="og:image" content="http://foo.bar/image.png">
+    <!-- Twitter-->
+    <!--Summaryカードなら'summary'-->
+    <meta name="twitter:card" content="summary_large_image">
+    <!--画像URL-->
+    <meta name="twitter:image" content="http://foo.bar/image.png">
+    <title>form</title>
+    <link rel="stylesheet" href="./css/app.css?1548232687006">
+  </head>
+  <body>
+    <form class="p-form" id="form1" method="get" action="./complete.html">
+      <div class="p-form__error" data-target-error></div>
+      <dl class="p-form__box">
+        <dt class="p-form__ttl">
+          <p class="p-form__ttl__body"><span class="p-form__ttl__body__text">タイトル</span><span class="p-form__ttl__body__required">必須</span></p>
+        </dt>
+        <dd class="p-form__data">
+          <input class="p-form__input" type="text" name="title" placeholder="タイトルを入力してください" data-target-title required>
+        </dd>
+      </dl>
+      <dl class="p-form__box">
+        <dt class="p-form__ttl">
+          <p class="p-form__ttl__body u-textarea"><span class="p-form__ttl__body__text">本文</span><span class="p-form__ttl__body__required">必須</span></p>
+        </dt>
+        <dd class="p-form__data">
+          <textarea class="p-form__textarea" name="body" placeholder="本文を入力してください" data-target-body required></textarea>
+        </dd>
+      </dl>
+      <dl class="p-form__box">
+        <dt class="p-form__ttl">
+          <p class="p-form__ttl__body u-checkbox"><span class="p-form__ttl__body__text">チェックボックス</span><span class="p-form__ttl__body__required">必須</span></p>
+        </dt>
+        <dd class="p-form__data" data-target-check>
+          <label class="p-form__check__wrap" for="check1">
+            <p class="p-form__check__body">チェックボックス1</p>
+            <input class="p-form__check__input" id="check1" type="checkbox" name="check" required>
+          </label>
+          <label class="p-form__check__wrap" for="check2">
+            <p class="p-form__check__body">チェックボックス2</p>
+            <input class="p-form__check__input" id="check2" type="checkbox" name="check" required>
+          </label>
+          <label class="p-form__check__wrap" for="check3">
+            <p class="p-form__check__body">チェックボックス3</p>
+            <input class="p-form__check__input" id="check3" type="checkbox" name="check" required>
+          </label>
+        </dd>
+      </dl>
+      <div class="p-form__submit__wrap">
+        <button class="p-form__submit" type="submit" data-target-submit disabled>送信する</button>
+      </div>
+    </form>
+    <script src="./js/app.js?1548232687006"></script>
+  </body>
+</html>

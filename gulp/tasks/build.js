@@ -61,11 +61,6 @@ gulp.task('fontCopy', () => {
 	.pipe(gulp.dest('build/font/'));
 });
 
-gulp.task('phpCopy', () => {
-	return gulp.src(paths.dest + '**/*.php')
-	.pipe(gulp.dest(paths.build));
-});
-
 gulp.task('stylusBuild', () => {
 	return gulp.src(paths.stylus_src)
 	.pipe(plumber())
@@ -80,7 +75,7 @@ gulp.task('stylusBuild', () => {
 		}),
 		autoprefixer({
 			remove: false,
-			"browsers": ["last 4 versions"]
+			grid: true,
 		})
 	]))
 	.on('error', (err) => {
@@ -108,7 +103,6 @@ gulp.task('build', (cb) => {
 		'imgBuild',
 		'svgCopy',
 		'fontCopy',
-		'phpCopy',
 		'webpackBuild',
 		cb
 	);

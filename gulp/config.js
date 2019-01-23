@@ -20,16 +20,6 @@ const paths = {
 	
 	php_src: './src/php/',
 	
-	iconfont_src: './src/iconfont/*.svg',
-	iconfont_template_src: './src/template/iconfont/',
-	iconfont_template_dest: './dest/template/iconfont/',
-	iconfont_stylus_dest: './src/stylus/object/component/',
-	iconfont_dest: './dest/font/',
-	iconfont_build: './dest/font/',
-	webfont_src: './src/webfont/*.*',
-	font_dest: './dest/webfont/',
-	font_build: './build/font/',
-	
 	dest: './dest/',
 	build: './build/'
 };

@@ -8,7 +8,7 @@
 			margin-top: 20px
 	&__ttl
 		display: flex
-		min-width: 12rem
+		min-width: 17rem
 		&__body
 			font-size: 1.4rem
 			font-weight: bold
@@ -18,6 +18,8 @@
 			&.u-textarea
 				align-items: flex-start
 				padding-top: 15px
+			&.u-checkbox
+				align-items: flex-start
 			&__text
 				flex 1
 			&__required
@@ -64,6 +66,7 @@
 		padding: 0 25px
 		font-weight: bold
 		transition all .2s ease-out
+		margin-top: 10px
 		&.is-active
 			background: #4abfdb
 			border-bottom: 3px solid #388fa3
@@ -75,7 +78,7 @@
 			display: flex
 			justify-content: center
 	&__error
-		padding-left: 140px
+		padding-left: 190px
 		&__body
 			font-size: 1.4rem
 			color: #d00e31
@@ -92,4 +95,16 @@
 			color: #272727
 			display: flex
 		&__icon
+			margin-left: 10px
+	&__check
+		&__wrap
+			display: flex
+			align-items: center
+			cursor: pointer
+			&:nth-child(n+2)
+				margin-top: 1rem
+		&__body
+			font-size: 1.4rem
+			color: #272727
+		&__input
 			margin-left: 10px
