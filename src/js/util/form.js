@@ -65,8 +65,18 @@ export default class {
 	}
 
 	isValidCheck() {
+		//チェックボックス配列を作成
+		this.checkArray = [];
+		//チェックボックスがチェックされたかどうかを配列に代入
+		$(this.$check).find('[type="checkbox"]').each((index, val) => {
+			this.checkArray.push($(val).prop('checked'));
+		});
+		//some関数で配列内にtrueがあればtrueを返す
+		this.isCheckTrue = this.checkArray.some((val) => {
+			return val === true;
+		});
+		return this.isCheckTrue;
 	}
-
 
 	// -----------------------  view
 	handleError() {
@@ -99,15 +109,7 @@ export default class {
 		});
 
 		$(this.$check).find('[type="checkbox"]').on('click', () => {
-			this.checkArray = [];
-			$(this.$check).find('[type="checkbox"]').each((index, val) => {
-				this.checkArray.push($(val).prop('checked'));
-			});
-			console.log(
-				this.checkArray.some((val) => {
-					return val === true
-				})
-			);
+			this.handleError();
 		});
 	}
 }
