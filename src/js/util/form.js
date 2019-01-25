@@ -1,35 +1,36 @@
-import $ from 'jquery'
-
+import $ from 'jquery';
 export default class {
 	// -----------------------  model
 	constructor($root) {
 		//関連するデータをまとめて記述する
-		//複数対応するためのroot
-		this.$root = $root;
 		//セレクタを初期化
 		this.$title = '';
 		this.$body = '';
 		this.$check = '';
 		this.$error = '';
 		this.$submit = '';
-		//エラーを入れるための配列を準備
+		
+		//複数対応するためのroot
+		this.$root = $root;
+		// セレクタを定義
+		this.$title = $($root).find($('[data-target-title]'));
+		this.$body = $($root).find($('[data-target-body]'));
+		this.$check = $($root).find($('[data-target-check]'));
+		this.$error = $($root).find($('[data-target-error]'));
+		this.$submit = $($root).find($('[data-target-submit]'));
+		
+		//エラーを入れるための配列、チェックボックスの状態を入れる配列を準備
 		this.errorArray = [];
 		this.checkArray = [];
+		
 		//バリデートルール
 		this.titleMinLength = 1;
 		this.titleMaxLength = 15;
 		this.bodyMinLength = 1;
 		this.bodyMaxLength = 30;
 
-		// セレクタを定義
-		this.$title = $($root).find($('[data-target-title]'));
-		this.$body = $($root).find($('[data-target-body]'));
-		this.$check = $($root).find($('[data-target-check]'));
-		this.$error = $('[data-target-error]');
-		this.$submit = $('[data-target-submit]');
-		//event用の関数を実行
+		//event用のメソッドを実行
 		this.handleEvent();
-
 	}
 
 	//タイトル、本文それぞれバリデートが通ったらtrueを返してエラー配列を空にする
@@ -71,7 +72,7 @@ export default class {
 		$(this.$check).find('[type="checkbox"]').each((index, val) => {
 			this.checkArray.push($(val).prop('checked'));
 		});
-		//some関数で配列内にtrueがあればtrueを返す
+		//someメソッドを使って、配列内にtrueがあればtrueを返すisCheckTrueメソッドを定義
 		this.isCheckTrue = this.checkArray.some((val) => {
 			return val === true;
 		});
@@ -95,7 +96,7 @@ export default class {
 		}
 	}
 
-	//event
+	// -----------------------  view
 	handleEvent() {
 		$(this.$title).on('input', (e) => {
 			//e.currentTargetでイベントの対象を取得できる

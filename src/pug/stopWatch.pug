@@ -14,7 +14,7 @@ html(lang='ja')
 		include include/_title
 		include include/_css
 	body
-		#stopWatch1.p-stopwatch
+		#stopWatch1.p-stopwatch(data-target-stopWatch)
 			.p-stopwatch__num 0
 				
 			ul.p-stopwatch__nav
@@ -22,7 +22,8 @@ html(lang='ja')
 					button.p-stopwatch__nav__btn.start(type="button") スタート
 				li.p-stopwatch__nav__item
 					button.p-stopwatch__nav__btn.stop(type="button") ストップ
-		#stopWatch2.p-stopwatch
+					
+		#stopWatch2.p-stopwatch(data-target-stopWatch)
 			.p-stopwatch__num 0
 				
 			ul.p-stopwatch__nav

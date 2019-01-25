@@ -24,10 +24,10 @@
     <!--画像URL-->
     <meta name="twitter:image" content="http://foo.bar/image.png">
     <title>form</title>
-    <link rel="stylesheet" href="./css/app.css?1548321921944">
+    <link rel="stylesheet" href="./css/app.css?1548393958164">
   </head>
   <body>
-    <form class="p-form" id="form1" method="get" action="./form_complete.html">
+    <form class="p-form" id="form1" method="get" action="./form_complete.html" data-target-form>
       <div class="p-form__error" data-target-error></div>
       <dl class="p-form__box">
         <dt class="p-form__ttl">
@@ -50,17 +50,17 @@
           <p class="p-form__ttl__body u-checkbox"><span class="p-form__ttl__body__text">チェックボックス</span><span class="p-form__ttl__body__required">必須</span></p>
         </dt>
         <dd class="p-form__data" data-target-check>
-          <label class="p-form__check__wrap" for="check1">
+          <label class="p-form__check__wrap" for="check11">
             <p class="p-form__check__body">チェックボックス1</p>
-            <input class="p-form__check__input" id="check1" type="checkbox" name="check">
+            <input class="p-form__check__input" id="check11" type="checkbox" name="check" data-target-check>
           </label>
-          <label class="p-form__check__wrap" for="check2">
+          <label class="p-form__check__wrap" for="check12">
             <p class="p-form__check__body">チェックボックス2</p>
-            <input class="p-form__check__input" id="check2" type="checkbox" name="check">
+            <input class="p-form__check__input" id="check12" type="checkbox" name="check" data-target-check>
           </label>
-          <label class="p-form__check__wrap" for="check3">
+          <label class="p-form__check__wrap" for="check13">
             <p class="p-form__check__body">チェックボックス3</p>
-            <input class="p-form__check__input" id="check3" type="checkbox" name="check">
+            <input class="p-form__check__input" id="check13" type="checkbox" name="check" data-target-check>
           </label>
         </dd>
       </dl>
@@ -68,6 +68,47 @@
         <button class="p-form__submit" type="submit" data-target-submit disabled>送信する</button>
       </div>
     </form>
-    <script src="./js/app.js?1548321921944"></script>
+    <form class="p-form" id="form2" method="get" action="./form_complete.html" data-target-form>
+      <div class="p-form__error" data-target-error></div>
+      <dl class="p-form__box">
+        <dt class="p-form__ttl">
+          <p class="p-form__ttl__body"><span class="p-form__ttl__body__text">タイトル</span><span class="p-form__ttl__body__required">必須</span></p>
+        </dt>
+        <dd class="p-form__data">
+          <input class="p-form__input" type="text" name="title" placeholder="タイトルを入力してください" data-target-title required>
+        </dd>
+      </dl>
+      <dl class="p-form__box">
+        <dt class="p-form__ttl">
+          <p class="p-form__ttl__body u-textarea"><span class="p-form__ttl__body__text">本文</span><span class="p-form__ttl__body__required">必須</span></p>
+        </dt>
+        <dd class="p-form__data">
+          <textarea class="p-form__textarea" name="body" placeholder="本文を入力してください" data-target-body required></textarea>
+        </dd>
+      </dl>
+      <dl class="p-form__box">
+        <dt class="p-form__ttl">
+          <p class="p-form__ttl__body u-checkbox"><span class="p-form__ttl__body__text">チェックボックス</span><span class="p-form__ttl__body__required">必須</span></p>
+        </dt>
+        <dd class="p-form__data" data-target-check>
+          <label class="p-form__check__wrap" for="check21">
+            <p class="p-form__check__body">チェックボックス1</p>
+            <input class="p-form__check__input" id="check21" type="checkbox" name="check" data-target-check>
+          </label>
+          <label class="p-form__check__wrap" for="check22">
+            <p class="p-form__check__body">チェックボックス2</p>
+            <input class="p-form__check__input" id="check22" type="checkbox" name="check" data-target-check>
+          </label>
+          <label class="p-form__check__wrap" for="check23">
+            <p class="p-form__check__body">チェックボックス3</p>
+            <input class="p-form__check__input" id="check23" type="checkbox" name="check" data-target-check>
+          </label>
+        </dd>
+      </dl>
+      <div class="p-form__submit__wrap">
+        <button class="p-form__submit" type="submit" data-target-submit disabled>送信する</button>
+      </div>
+    </form>
+    <script src="./js/app.js?1548393958164"></script>
   </body>
 </html>
