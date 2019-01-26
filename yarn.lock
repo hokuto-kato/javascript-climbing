@@ -1743,7 +1743,7 @@ buffer@^4.3.0:
     ieee754 "^1.1.4"
     isarray "^1.0.0"
 
-bufferstreams@^1.0.2, bufferstreams@^1.1.0, bufferstreams@^1.1.1:
+bufferstreams@^1.0.2, bufferstreams@^1.1.0:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/bufferstreams/-/bufferstreams-1.1.1.tgz#0161373060ac5988eff99058731114f6e195d51e"
   dependencies:
@@ -2633,16 +2633,6 @@ decompress@^4.0.0, decompress@^4.2.0:
     make-dir "^1.0.0"
     pify "^2.3.0"
     strip-dirs "^2.0.0"
-
-deep-extend-stream@^4.0.0-0:
-  version "4.0.0-0"
-  resolved "https://registry.yarnpkg.com/deep-extend-stream/-/deep-extend-stream-4.0.0-0.tgz#5030dbd44a43f29d2356ebf366a544742c4b09b7"
-  dependencies:
-    deep-extend "^0.5.0"
-
-deep-extend@^0.5.0:
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/deep-extend/-/deep-extend-0.5.0.tgz#6ef4a09b05f98b0e358d6d93d4ca3caec6672803"
 
 deep-extend@^0.6.0:
   version "0.6.0"
@@ -5332,13 +5322,6 @@ js-yaml@^3.12.0, js-yaml@^3.9.0:
     argparse "^1.0.7"
     esprima "^4.0.0"
 
-js-yaml@^3.6.1:
-  version "3.10.0"
-  resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-3.10.0.tgz#2e78441646bd4682e963f22b6e92823c309c62dc"
-  dependencies:
-    argparse "^1.0.7"
-    esprima "^4.0.0"
-
 jsbn@~0.1.0:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/jsbn/-/jsbn-0.1.1.tgz#a5e654c2e5a2deb5f201d96cefbca80c0ef2f513"
@@ -6501,10 +6484,6 @@ object-keys@^1.0.6, object-keys@^1.0.8:
 object-keys@~0.4.0:
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/object-keys/-/object-keys-0.4.0.tgz#28a6aae7428dd2c3a92f3d95f21335dd204e0336"
-
-object-path@^0.11.2:
-  version "0.11.4"
-  resolved "https://registry.yarnpkg.com/object-path/-/object-path-0.11.4.tgz#370ae752fbf37de3ea70a861c23bba8915691949"
 
 object-path@^0.9.0:
   version "0.9.2"
@@ -8631,10 +8610,6 @@ svg2ttf@^4.1.0:
     svgpath "^2.1.5"
     xmldom "~0.1.22"
 
-svg4everybody@^2.1.9:
-  version "2.1.9"
-  resolved "https://registry.yarnpkg.com/svg4everybody/-/svg4everybody-2.1.9.tgz#5bd9f6defc133859a044646d4743fabc28db7e2d"
-
 svgicons2svgfont@^9.0.3:
   version "9.0.4"
   resolved "https://registry.yarnpkg.com/svgicons2svgfont/-/svgicons2svgfont-9.0.4.tgz#0f974f3e01789d22beeecc0077a855587ffe527d"
@@ -8939,10 +8914,6 @@ trim-repeated@^1.0.0:
 trim-right@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/trim-right/-/trim-right-1.0.1.tgz#cb2e1203067e0c8de1f614094b9fe45704ea6003"
-
-try-stream-push@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/try-stream-push/-/try-stream-push-1.1.0.tgz#db230ca08ec5ac016011e1f608304113047533de"
 
 tslib@^1.9.0:
   version "1.9.3"
@@ -9329,16 +9300,6 @@ vinyl-sourcemaps-apply@^0.2.0, vinyl-sourcemaps-apply@^0.2.1:
   resolved "https://registry.yarnpkg.com/vinyl-sourcemaps-apply/-/vinyl-sourcemaps-apply-0.2.1.tgz#ab6549d61d172c2b1b87be5c508d239c8ef87705"
   dependencies:
     source-map "^0.5.1"
-
-vinyl-yaml-data@^2.0.1:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/vinyl-yaml-data/-/vinyl-yaml-data-2.0.1.tgz#e61cdcf3ca510aa2d326f46d82a32cfa5f86e789"
-  dependencies:
-    bufferstreams "^1.1.1"
-    js-yaml "^3.6.1"
-    object-path "^0.11.2"
-    replace-ext "^1.0.0"
-    try-stream-push "^1.1.0"
 
 vinyl@1.X, vinyl@^1.0.0, vinyl@^1.1.0:
   version "1.2.0"
