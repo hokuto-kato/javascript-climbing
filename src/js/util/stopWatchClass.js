@@ -3,11 +3,11 @@ import $ from 'jquery'
 export default class {
 	// -----------------------  model
 	constructor($root) {
-		this.numTarget = $root.find($('.p-stopwatch__num'));
-		this.num = this.numTarget.text();
-		this.$startBtn = $root.find($('.start'));
+		this.num = '';
+		this.numTarget = $root.find($('[data-target-num]'));
+		this.$startBtn = $root.find($('[data-trigger-start]'));
+		this.$stopBtn = $root.find($('[data-trigger-stop]'));
 		this.$stopWatch = $('[data-target-stopWatch]');
-		this.$stopBtn = $root.find($('.stop'));
 		this.handleEvent();
 	}
 
