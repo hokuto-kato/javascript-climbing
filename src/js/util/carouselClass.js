@@ -1,8 +1,5 @@
 export default class {
-	// 土台となるclassを準備
-	// 最初に実行される処理であるconstructorをセット
-
-	//model
+	// -----------------------  model
 	constructor($root) {
 		this.$root = $root;
 		this.$item = $root.find('.p-carousel__item');
@@ -10,7 +7,6 @@ export default class {
 		this.$prev = $root.find('.prev');
 		this.num = this.$item.length;
 		this.current = 0;
-
 		this.handleEvent();
 	}
 
@@ -40,13 +36,13 @@ export default class {
 		this.displaySlide();
 	}
 
-	//view
+	// -----------------------  view
 	displaySlide() {
 		this.$item.removeClass('is-active');
 		this.$item.eq(this.current).addClass('is-active');
 	}
 
-	//event
+	// -----------------------  event
 	handleEvent() {
 		this.$next.on('click', () => {
 			this.next()

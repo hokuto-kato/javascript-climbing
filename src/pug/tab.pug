@@ -14,7 +14,7 @@ html(lang='ja')
 		include include/_title
 		include include/_css
 	body
-		.p-tab#tab1
+		.p-tab#tab1(data-target-tab)
 			ul.p-tab__nav
 				li.p-tab__nav__item.is-active タブ1
 				li.p-tab__nav__item タブ2
@@ -27,7 +27,7 @@ html(lang='ja')
 				li.p-tab__body__item
 					p.p-tab__body__content タブ3の内容。タブ3の内容。タブ3の内容。タブ3の内容。タブ3の内容。タブ3の内容。タブ3の内容。
 					
-		.p-tab#tab2
+		.p-tab#tab2(data-target-tab)
 			ul.p-tab__nav
 				li.p-tab__nav__item.is-active タブ1
 				li.p-tab__nav__item タブ2

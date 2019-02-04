@@ -1,36 +1,37 @@
 import $ from 'jquery'
 
 export default class {
-	//model
-	constructor(root) {
-		this.numTarget = root.find($('.p-stopwatch__num'));
-		this.num = this.numTarget.text();
-		this.startBtn = root.find($('.start'));
-		this.stopBtn = root.find($('.stop'));
+	// -----------------------  model
+	constructor($root) {
+		this.num = '';
+		this.numTarget = $root.find($('[data-target-num]'));
+		this.$startBtn = $root.find($('[data-trigger-start]'));
+		this.$stopBtn = $root.find($('[data-trigger-stop]'));
+		this.$stopWatch = $('[data-target-stopWatch]');
 		this.handleEvent();
 	}
 
-	//view
+	// -----------------------  view
 	countUp() {
-		this.startBtn.attr('disabled','disabled');
+		this.$startBtn.attr('disabled', 'disabled');
 		this.numTarget.text(0);
 		this.num = 0;
 		this.intervalId = setInterval(() => {
 			this.numTarget.text(this.num++);
 		}, 1000);
 	}
-	countStop(){
-		this.startBtn.removeAttr('disabled');
+
+	countStop() {
+		this.$startBtn.removeAttr('disabled');
 		clearInterval(this.intervalId);
 	}
 
-	//event
+	// -----------------------  event
 	handleEvent() {
-		if(!$('.p-stopwatch').length) return;
-		this.startBtn.on('click', (e) => {
+		this.$startBtn.on('click', () => {
 			this.countUp();
 		});
-		this.stopBtn.on('click', (e) => {
+		this.$stopBtn.on('click', () => {
 			this.countStop();
 		});
 	}

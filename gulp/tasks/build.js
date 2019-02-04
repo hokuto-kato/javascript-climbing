@@ -11,28 +11,17 @@ import imageminJpg from 'imagemin-jpeg-recompress';
 import imageminGif from 'imagemin-gifsicle';
 import webpackStream from 'webpack-stream'
 import webpack from 'webpack'
-import vinylYamlData from "vinyl-yaml-data";
-import deepExtend from "deep-extend-stream";
 import webpackConfig from '../../webpack.config.build'
 import paths from '../config'
 import mqpacker from "css-mqpacker";
 import sortCSSmq from "sort-css-media-queries";
 import postcss from "gulp-postcss";
 
-let locals = {};
 
 gulp.task('copyimg', () => {
 	return gulp.src(['src/images/**'])
 	.pipe(del([paths.distImg + '/*.+(jpg|jpeg|png|gif|svg)', paths.distImg + '/**/*.+(jpg|jpeg|png|gif|svg)', '!' + paths.distImg + '/sprite/**']))
 	.pipe(gulp.dest(paths.distImg))
-});
-
-gulp.task('yamlBuild', () => {
-	locals = {};
-	return gulp.src(paths.yaml_src)
-	.pipe(plumber())
-	.pipe(vinylYamlData())
-	.pipe(deepExtend(locals))
 });
 
 gulp.task("webpackBuild", () => {
@@ -84,7 +73,7 @@ gulp.task('stylusBuild', () => {
 	.pipe(gulp.dest(paths.stylus_build))
 });
 
-gulp.task('pugBuild', ['yamlBuild'], () => {
+gulp.task('pugBuild',  () => {
 	return gulp.src(paths.pug_src)
 	.pipe(plumber())
 	.pipe(pug({
