@@ -33,14 +33,14 @@ html(lang='ja')
 			dl.p-form__box
 				dt.p-form__ttl
 					p.p-form__ttl__body.u-checkbox
-						span.p-form__ttl__body__text チェックボックス
+						span.p-form__ttl__body__text カテゴリー
 						span.p-form__ttl__body__required 必須
-				dd.p-form__data(data-target-check)
-					-for(var i =0; i < 3; i++)
-						label.p-form__check__wrap(for="check" + (i + 1))
-							p.p-form__check__body チェックボックス#{i  +1}
-							input.p-form__check__input(id="check" + (i + 1) type="checkbox" name="check")
-			.p-form__submit__wrap
+				dd.p-form__data
+					-for(var i = 0; i < 3; i++)
+						label.p-form__check__wrap(for="category" + (i + 1))
+							p.p-form__check__body カテゴリー#{i  +1}
+							input.p-form__check__input(id="category" + (i + 1) type="checkbox" name="category"+(i + 1) value="category"+(i + 1) data-target-checkbox)
+			.p-form__submit__wrap.u-mt20
 				button.p-form__submit(type="submit" data-target-submit disabled) 送信する
 
 		include include/_js

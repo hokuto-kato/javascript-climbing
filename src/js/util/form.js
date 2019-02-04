@@ -6,27 +6,22 @@ export default class {
 		//関連するデータをまとめて記述する
 		//複数対応するためのroot
 		this.$root = $root;
-		//セレクタを初期化
-		this.$title = '';
-		this.$body = '';
-		this.$check = '';
-		this.$error = '';
-		this.$submit = '';
-		//エラーを入れるための配列を準備
-		this.errorArray = [];
-		this.checkArray = [];
 		//バリデートルール
 		this.titleMinLength = 1;
 		this.titleMaxLength = 15;
 		this.bodyMinLength = 1;
 		this.bodyMaxLength = 30;
 
+		this.title = "";
+		this.body = "";
+		this.categories = [];
+
 		// セレクタを定義
 		this.$title = $($root).find($('[data-target-title]'));
 		this.$body = $($root).find($('[data-target-body]'));
-		this.$check = $($root).find($('[data-target-check]'));
-		this.$error = $('[data-target-error]');
-		this.$submit = $('[data-target-submit]');
+		this.$checkBox = $($root).find($('[data-target-checkbox]'));
+		this.$error = $($root).find($('[data-target-error]'));
+		this.$submit = $($root).find($('[data-target-submit]'));
 		//event用の関数を実行
 		this.handleEvent();
 
@@ -48,7 +43,7 @@ export default class {
 			this.errorArray.push(`・本文は${this.bodyMinLength}文字以上、${this.bodyMaxLength}文字以下で入力してください`)
 		}
 
-		if(!this.isValidCheck()) {
+		if(!this.isValidCategories()) {
 			this.errorArray.push(`・いずれかのチェックボックスをチェックしてください`)
 		}
 
@@ -57,25 +52,25 @@ export default class {
 	}
 
 	isValidTitle() {
-		return ($(this.$title).val().length >= this.titleMinLength) && ($(this.$title).val().length <= this.titleMaxLength);
+		return (this.title.length >= this.titleMinLength) && (this.title.length <= this.titleMaxLength);
 	}
 
 	isValidBody() {
-		return ($(this.$body).val().length >= this.bodyMinLength) && ($(this.$body).val().length <= this.bodyMaxLength);
+		return (this.body.length >= this.bodyMinLength) && (this.body.length <= this.bodyMaxLength);
 	}
 
-	isValidCheck() {
-		//チェックボックス配列を作成
-		this.checkArray = [];
-		//チェックボックスがチェックされたかどうかを配列に代入
-		$(this.$check).find('[type="checkbox"]').each((index, val) => {
-			this.checkArray.push($(val).prop('checked'));
+	isValidCategories() {
+		if(this.categories.length > 0) return true;
+	}
+
+	setCategories() {
+		this.categories = [];
+		this.$checkBox.each((index, val) => {
+			if($(val).prop('checked')) {
+				this.categories.push($(val).val());
+			}
 		});
-		//some関数で配列内にtrueがあればtrueを返す
-		this.isCheckTrue = this.checkArray.some((val) => {
-			return val === true;
-		});
-		return this.isCheckTrue;
+		console.log(this.categories);
 	}
 
 	// -----------------------  view
@@ -98,17 +93,17 @@ export default class {
 	//event
 	handleEvent() {
 		$(this.$title).on('input', (e) => {
-			//e.currentTargetでイベントの対象を取得できる
-			this.$title = $(e.currentTarget);
+			this.title = $(e.currentTarget).val();
 			this.handleError();
 		});
 
 		$(this.$body).on('input', (e) => {
-			this.$body = $(e.currentTarget);
+			this.body = $(e.currentTarget).val();
 			this.handleError();
 		});
 
-		$(this.$check).find('[type="checkbox"]').on('click', () => {
+		$(this.$checkBox).on('click', () => {
+			this.setCategories();
 			this.handleError();
 		});
 	}

@@ -1,0 +1,36 @@
+-
+	var domain = './'
+	var imgSrc = './img/'
+	var description = 'calculation'
+	var keywords = 'calculation'
+	var title = 'calculation'
+	var date = +new Date()
+
+doctype html
+html(lang='ja')
+	head
+		include include/_meta
+		include include/_ogp
+		include include/_title
+		include include/_css
+	body
+		#calc
+			.p-calc
+				.p-calc__input
+					select.p-form__select(data-trigger-select1)
+						-for(var i = 0; i < 10; i++)
+							option(value= i + 1) #{i + 1}
+					select.p-form__select(data-trigger-select2)
+						-for(var i = 0; i < 10; i++)
+							option(value= i + 1) #{i + 1}
+					button.p-form__submit.p-calc__submit(type="button" data-trigger-submit) 計算
+
+				.p-calc__result(data-target-result)
+					p.p-calc__result__body
+						| 1 + 1 = 2
+					p.p-calc__result__body
+						| 1 × 1 = 1
+					p.p-calc__result__body
+						| 1 ÷ 1 = 1
+
+		include include/_js
