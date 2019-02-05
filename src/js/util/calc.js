@@ -39,7 +39,7 @@ export default class {
 	// -----------------------  event
 	handleEvent() {
 		$(this.$btn).on('click', () => {
-			this.valueLeft = $(this.$selectLeft).val();
+			this.valueLeft = Number($(this.$selectLeft).val());
 			this.valueLeftNum = Number(this.valueLeft);
 			this.valueRight = $(this.$selectRight).val();
 			this.valueRightNum = Number(this.valueRight);

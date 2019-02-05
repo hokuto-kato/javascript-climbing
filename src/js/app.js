@@ -17,7 +17,6 @@ target = {
 const carouselEvt = () =>{
 	if(!target.carousel.length) return;
 	new carouselClass($("#carousel1"));
-	new carouselClass($("#carousel2"));
 };
 
 const tabEvt = () =>{
@@ -28,8 +27,7 @@ const tabEvt = () =>{
 
 const stopWatchEvt = () => {
 	if(!target.stopWatch.length) return;
-	new stopWatchClass($('#stopWatch1'));
-	new stopWatchClass($('#stopWatch2'));
+	new stopWatchClass($('#stopWatch1'),{time: 5000});
 };
 
 const formEvt = () => {
