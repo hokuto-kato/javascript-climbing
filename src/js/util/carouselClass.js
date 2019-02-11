@@ -4,17 +4,22 @@ export default class {
 	// -----------------------  model
 	constructor($root) {
 		this.$root = $root;
-		this.num = $('.p-carousel__item').length;
 		this.current = 0;
 
 		this.images = [
 			"https://fakeimg.pl/100x100/?retina=1&text=1%E6%9E%9A%E7%9B%AE&font=noto",
 			"https://fakeimg.pl/100x100/?retina=2&text=2%E6%9E%9A%E7%9B%AE&font=noto",
-			"https://fakeimg.pl/100x100/?retina=3&text=2%E6%9E%9A%E7%9B%AE&font=noto"
+			"https://fakeimg.pl/100x100/?retina=3&text=3%E6%9E%9A%E7%9B%AE&font=noto"
 		];
 
 		this.displaySlide();
+		this.initElement();
 		this.handleEvent();
+	}
+
+	initElement() {
+		this.$item = this.$root.find($('.p-carousel__item'));
+		this.num = $('.p-carousel__item').length;
 	}
 
 	increment() {
@@ -35,14 +40,6 @@ export default class {
 		}
 	}
 
-	next() {
-		this.increment();
-	}
-
-	prev() {
-		this.decrement();
-	}
-
 	// -----------------------  view
 	displaySlide() {
 		this.$root.html(`
@@ -56,7 +53,7 @@ export default class {
 			</li>
 		</ul>
 		`);
-		
+
 		$(this.images).each((index, val) => {
 			if(index === 0) {
 				$('.p-carousel__box').append(`
@@ -74,18 +71,20 @@ export default class {
 		})
 	}
 
-	// displaySlide() {
-	// 	this.$item.removeClass('is-active');
-	// 	this.$item.eq(this.current).addClass('is-active');
-	// }
+	moveSlide() {
+		this.$item.removeClass('is-active');
+		this.$item.eq(this.current).addClass('is-active');
+	}
 
 	// -----------------------  event
 	handleEvent() {
 		$('.next').on('click', () => {
-			this.next()
+			this.increment();
+			this.moveSlide();
 		});
 		$('.prev').on('click', () => {
-			this.prev()
+			this.decrement();
+			this.moveSlide();
 		});
 	}
 }

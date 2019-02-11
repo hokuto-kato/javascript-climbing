@@ -27,7 +27,7 @@ const tabEvt = () =>{
 
 const stopWatchEvt = () => {
 	if(!target.stopWatch.length) return;
-	new stopWatchClass($('#stopWatch1'),{time: 5000});
+	new stopWatchClass($('#stopWatch1'),{time: 1000});
 };
 
 const formEvt = () => {

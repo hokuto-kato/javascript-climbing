@@ -4,11 +4,11 @@ export default class {
 	// -----------------------  model
 	constructor($root, options) {
 		this.num = 1;
-		var defaults = {
+		const defaults = {
 			time: 1000
 		};
+		// Object.assign(); → 第2引数に定義済みのオブジェクトを指定することで、第1引数のオブジェクトにマージできる。
 		this.options = Object.assign(defaults, options);
-		console.log(this.options);
 		this.$numTarget = $root.find($('[data-target-num]'));
 		this.$start = $root.find($('[data-trigger-start]'));
 		this.$stop = $root.find($('[data-trigger-stop]'));
