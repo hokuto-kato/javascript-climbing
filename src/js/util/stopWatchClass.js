@@ -4,6 +4,7 @@ export default class {
 	// -----------------------  model
 	constructor($root, options) {
 		this.num = 1;
+		this.isStarted = false;
 		const defaults = {
 			time: 1000
 		};
@@ -21,7 +22,6 @@ export default class {
 
 	// -----------------------  view
 	initView() {
-		this.$start.attr('disabled', 'disabled');
 		this.$numTarget.text(0);
 		this.num = 1;
 	}
@@ -34,16 +34,19 @@ export default class {
 	}
 
 	countStop() {
-		this.$start.removeAttr('disabled');
 		clearInterval(this.intervalId);
 	}
 
 	// -----------------------  event
 	handleEvent() {
 		this.$start.on('click', () => {
-			this.countUp();
+			if(!this.isStarted){
+				this.isStarted = true;
+				this.countUp();
+			}
 		});
 		this.$stop.on('click', () => {
+			this.isStarted = false;
 			this.countStop();
 		});
 	}
