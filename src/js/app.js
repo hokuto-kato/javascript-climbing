@@ -4,6 +4,8 @@ import tab from './util/tab'
 import stopWatchClass from './util/stopWatchClass'
 import form from './util/form'
 import calc from './util/calc'
+import closure from './util/closure'
+import observer from './util/observer'
 
 let target = target || {};
 target = {
@@ -12,6 +14,8 @@ target = {
 	tab: $('[data-target-tab]'),
 	carousel: $('[data-target-carousel]'),
 	calc: $('[data-target-calc]'),
+	closure: $('[data-target-closure]'),
+	observer: $('[data-target-observer]'),
 };
 
 const carouselEvt = () =>{
@@ -41,10 +45,22 @@ const calcEvt = () => {
 	new calc($('#calc'));
 };
 
+const closureEvt = () =>{
+	if(!target.closure.length) return;
+	closure();
+};
+
+const observerEvt = () => {
+	if(!target.observer.length) return;
+	observer();
+};
+
 $(() => {
 	formEvt();
 	stopWatchEvt();
 	tabEvt();
 	carouselEvt();
 	calcEvt();
+	closureEvt();
+	observerEvt();
 });

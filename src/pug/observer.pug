@@ -1,0 +1,19 @@
+-
+	var domain = './'
+	var imgSrc = './img/'
+	var description = 'calculation'
+	var keywords = 'calculation'
+	var title = 'calculation'
+	var date = +new Date()
+
+doctype html
+html(lang='ja')
+	head
+		include include/_meta
+		include include/_ogp
+		include include/_title
+		include include/_css
+	body
+		#observer(data-target-observer)
+
+		include include/_js
