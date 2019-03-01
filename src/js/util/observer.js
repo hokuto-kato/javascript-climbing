@@ -1,23 +1,29 @@
 export default function() {
-
 	//Observerのコンストラクタを作成します
 	function Observer() {
-		//監視者を格納するための空の配列this.listnersを作成します
-		this.listners = [];
+		//監視者を格納するための空の配列this.listenersを作成します
+		// → 複数対応するため、配列からオブジェクトに変更します
+		this.listeners = {};
 	}
 
 	// 次にon、offというプロトタイプ関数を作成します。
-	// onメソッドはthis.listnersにイベントを通知したい関数を追加します。
-	Observer.prototype.on = function(func) {
-		this.listners.push(func);
+	// onメソッドはthis.listenersにイベントを通知したい関数を追加します。
+	// listenersに引数のeventが存在するかチェックし、eventがなければ空の配列を作成し、eventがあれば配列に追加します
+	Observer.prototype.on = function(event, func) {
+		console.log(this);
+		if(!this.listeners[event]) {
+			this.listeners[event] = [];
+		}
+		this.listeners[event].push(func);
 	};
 	//offメソッドは指定されたオブサーバーを検索しリストから削除します。
-	Observer.prototype.off = function(func) {
-		const len = this.listner.length;
-		for(let i = 0; i < len; i++) {
-			const listner = this.listners[i];
-			if(listner === func) {
-				this.listeners.splice(i, 1);
+	Observer.prototype.off = function(event, func) {
+		var ref = this.listeners[event],
+			len = ref.length;
+		for(var i = 0; i < len; i++) {
+			var listener = ref[i];
+			if(listener === func) {
+				ref.splice(i, 1);
 			}
 		}
 	};
@@ -25,17 +31,25 @@ export default function() {
 	//最後にtriggerというプロトタイプ関数を作成します。
 	//triggerメソッドはオブザーバーのリスト全体を反復処理し、実行します。
 	Observer.prototype.trigger = function(event) {
-		const len = this.listners.length;
-		for(let i = 0; i < len; i++) {
-			const listner = this.listners[i];
-			listner();
+		var ref = this.listeners[event];
+		for(var i = 0, len = ref.length; i < len; i++) {
+			var listener = ref[i];
+			if(typeof listener === "function") listener();
 		}
 	};
-	
-	const observer = new Observer();
-		const greet = () => {
-			console.log("good morning");
-		};
-		observer.on(greet);
-		observer.trigger();
+
+	//observerが完成したら次のように実行します
+	var observer = new Observer();
+	var greet = function() {
+		console.log("Good morning");
+	};
+	observer.on("morning", greet);
+	observer.trigger("morning"); //Good morning
+
+	var sayEvening = function() {
+		console.log("Good evening");
+	};
+	observer.on("evening", sayEvening);
+	observer.trigger("evening"); // Good evening
+
 }
