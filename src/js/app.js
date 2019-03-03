@@ -6,6 +6,7 @@ import form from './util/form'
 import calc from './util/calc'
 import closure from './util/closure'
 import observer from './util/observer'
+import observerClass from "./util/observerClass";
 
 let target = target || {};
 target = {
@@ -52,7 +53,7 @@ const closureEvt = () =>{
 
 const observerEvt = () => {
 	if(!target.observer.length) return;
-	observer();
+	new observerClass();
 };
 
 $(() => {
