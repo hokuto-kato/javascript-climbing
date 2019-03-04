@@ -13,12 +13,12 @@
 		"last 2 versions"
 	],
 	"devDependencies": {
-		"autoprefixer": "^9.4.7",
+		"autoprefixer": "^9.4.9",
 		"babel-cli": "^6.26.0",
 		"babel-loader": "^8.0.5",
 		"browser-sync": "^2.26.3",
 		"css-mqpacker": "^7.0.0",
-		"del": "^3.0.0",
+		"del": "^4.0.0",
 		"fs": "^0.0.1-security",
 		"gulp": "^3.9.1",
 		"gulp-cached": "^1.1.1",
@@ -35,7 +35,7 @@
 		"gulp-pug": "^4.0.1",
 		"gulp-pug-inheritance": "^0.2.1",
 		"gulp-rename": "^1.4.0",
-		"gulp-sourcemaps": "^2.6.4",
+		"gulp-sourcemaps": "^2.6.5",
 		"gulp-stylus": "^2.7.0",
 		"gulp-svgmin": "^2.1.0",
 		"gulp-svgstore": "^7.0.1",
@@ -53,12 +53,12 @@
 		"sort-css-media-queries": "^1.4.3",
 		"vinyl-buffer": "^1.0.1",
 		"vinyl-source-stream": "^2.0.0",
-		"webpack": "^4.29.5",
+		"webpack": "^4.29.6",
 		"webpack-stream": "^5.2.1"
 	},
 	"dependencies": {
-		"@babel/core": "^7.3.3",
-		"@babel/preset-env": "^7.3.1",
+		"@babel/core": "^7.3.4",
+		"@babel/preset-env": "^7.3.4",
 		"@babel/register": "^7.0.0"
 	}
 }

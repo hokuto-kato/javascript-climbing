@@ -37,6 +37,6 @@ export default class {
 
 	handleEvent() {
 		this.on(this.greet);
-		this.trigger(); //Good morning
+		this.trigger(); //Good Morning
 	}
 }
