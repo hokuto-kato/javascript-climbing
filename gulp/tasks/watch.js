@@ -2,6 +2,7 @@ import gulp from 'gulp';
 import browserSync from 'browser-sync';
 import runSequence from 'run-sequence';
 import del from 'del';
+import watch from 'gulp-watch';
 import paths from '../config';
 
 gulp.task('reload', () => {
@@ -34,10 +35,9 @@ gulp.task('imageDest', (cb) => {
 	);
 });
 
-gulp.task('watch', () => {
-	gulp.watch(['src/js/**/*'], ['webpack']);
-	gulp.watch(['src/stylus/**/*'], ['stylus']);
-	gulp.watch(['src/pug/**/*', 'src/yaml/**/*'], ['pugDest']);
-	gulp.watch(['src/img/**/*'], ['imageDest']);
-	gulp.watch(['src/php/**/*'], ['phpDest']);
+gulp.task("watch", () => {
+	watch([`${paths.js_src}`], () => {gulp.start("webpack");});
+	watch([`${paths.stylus_src}`], () => {gulp.start("stylus");});
+	watch([`${paths.pug_src}`, `${paths.yaml_src}`], () => {gulp.start("pugDest");});
+	watch([`${paths.img_src}*`], () => {gulp.start("imageDest");});
 });

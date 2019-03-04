@@ -7,6 +7,7 @@ import calc from './util/calc'
 import closure from './util/closure'
 import observer from './util/observer'
 import observerClass from "./util/observerClass";
+import formValidateObserver from "./util/formValidateObserver";
 
 let target = target || {};
 target = {
@@ -17,6 +18,7 @@ target = {
 	calc: $('[data-target-calc]'),
 	closure: $('[data-target-closure]'),
 	observer: $('[data-target-observer]'),
+	formObserver: $('[data-target-form-observer]'),
 };
 
 const carouselEvt = () =>{
@@ -56,6 +58,11 @@ const observerEvt = () => {
 	new observerClass();
 };
 
+const observerFormEvt = () => {
+	if(!target.formObserver.length) return;
+	new formValidateObserver();
+};
+
 $(() => {
 	formEvt();
 	stopWatchEvt();
@@ -64,4 +71,5 @@ $(() => {
 	calcEvt();
 	closureEvt();
 	observerEvt();
+	observerFormEvt();
 });
