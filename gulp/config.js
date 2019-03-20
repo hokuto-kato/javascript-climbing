@@ -13,7 +13,7 @@ const paths = {
 	stylus_dest: './dest/css/',
 	stylus_build: './build/css/',
 	
-	pug_src: ['./src/pug/**/*.pug','!./src/pug/**/_*.pug'],
+	pug_src: ['./src/pug/**/*.pug'],
 	
 	yaml_src: './src/yaml/**/*.y{,a}ml',
 	yaml_dest: './dest/json/',

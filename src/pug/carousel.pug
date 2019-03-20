@@ -15,4 +15,17 @@ html(lang='ja')
 		include include/_css
 	body
 		.p-carousel#carousel1(data-target-carousel)
+			ul.p-carousel__box
+				li.p-carousel__item.is-active(data-target-item)
+					img.p-carousel__body(src="https://fakeimg.pl/100x100/?retina=1&text=1%E6%9E%9A%E7%9B%AE&font=noto")
+				li.p-carousel__item(data-target-item)
+					img.p-carousel__body(src="https://fakeimg.pl/100x100/?retina=1&text=2%E6%9E%9A%E7%9B%AE&font=noto")
+				li.p-carousel__item(data-target-item)
+					img.p-carousel__body(src="https://fakeimg.pl/100x100/?retina=1&text=3%E6%9E%9A%E7%9B%AE&font=noto")
+			ul.p-carousel__nav
+				li.p-carousel__nav__item
+					button.p-carousel__nav__btn.prev(type="button" data-target-prev) <
+				li.p-carousel__nav__item
+					button.p-carousel__nav__btn.next(type="button" data-target-next) >
+					
 		include include/_js

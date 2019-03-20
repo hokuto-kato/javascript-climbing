@@ -1,0 +1,25 @@
+-
+	var domain = './'
+	var imgSrc = './img/'
+	var description = 'Stop Watch'
+	var keywords = 'Stop Watch'
+	var title = 'Stop Watch'
+	var date = +new Date()
+
+doctype html
+html(lang='ja')
+	head
+		include include/_meta
+		include include/_ogp
+		include include/_title
+		include include/_css
+	body
+		#stopWatch1.p-stopwatch(data-target-stopWatchClass)
+			.p-stopwatch__num(data-target-num) 0
+				
+			ul.p-stopwatch__nav
+				li.p-stopwatch__nav__item
+					button.p-stopwatch__nav__btn.start(type="button" data-trigger-start) スタート
+				li.p-stopwatch__nav__item
+					button.p-stopwatch__nav__btn.stop(type="button" data-trigger-stop) ストップ
+		include include/_js

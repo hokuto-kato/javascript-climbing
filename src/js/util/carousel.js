@@ -1,8 +1,6 @@
 import $ from 'jquery'
 
 export default function() {
-	if(!$('.p-carousel').length) return;
-	
 	const carousel = {
 		current: 1,
 		num: $('.p-carousel__box li').length,

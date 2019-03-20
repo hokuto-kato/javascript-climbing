@@ -1,7 +1,6 @@
 import $ from 'jquery'
 
 export default function() {
-	if(!$('.p-stopwatch').length) return;
 	const stopWatch = {
 			num: $('.p-stopwatch__num').text(),
 			intervalId: null,
