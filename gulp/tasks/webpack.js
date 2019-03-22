@@ -7,7 +7,7 @@ import plumber from 'gulp-plumber'
 import paths from '../config'
 
 gulp.task("webpack", () => {
-	return gulp.src(paths.js_src)
+	return gulp.src(`${paths.js_src}app.js`)
 	.pipe(plumber())
 	.pipe(webpackStream(webpackConfig, webpack))
 	.pipe(gulp.dest(paths.js_dest))

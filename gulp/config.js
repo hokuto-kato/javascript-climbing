@@ -5,7 +5,7 @@ const paths = {
 	img_sprite_src: './src/sprite/',
 	img_sprite_dest: './src/img/',
 	
-	js_src: './src/js/app.js',
+	js_src: './src/js/',
 	js_dest: './dest/js/',
 	js_build: './build/js/',
 	

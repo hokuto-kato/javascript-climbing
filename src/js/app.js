@@ -8,8 +8,6 @@ import form from './util/form'
 import calc from './util/calc'
 import closure from './util/closure'
 import observer from './util/observer'
-import observerClass from "./util/observerClass";
-import formValidateObserver from "./util/formValidateObserver";
 
 const target = {
 	form: $('[data-target-form]'),
@@ -21,7 +19,6 @@ const target = {
 	calc: $('[data-target-calc]'),
 	closure: $('[data-target-closure]'),
 	observer: $('[data-target-observer]'),
-	formObserver: $('[data-target-form-observer]'),
 };
 
 const carouselEvt = () =>{
@@ -53,7 +50,6 @@ const tabEvt = () =>{
 const formEvt = () => {
 	if(!target.form.length) return;
 	new form($('#form1'));
-	new form($('#form2'));
 };
 
 const calcEvt = () => {
@@ -68,12 +64,7 @@ const closureEvt = () =>{
 
 const observerEvt = () => {
 	if(!target.observer.length) return;
-	new observerClass();
-};
-
-const observerFormEvt = () => {
-	if(!target.formObserver.length) return;
-	new formValidateObserver();
+	new observer();
 };
 
 $(() => {
@@ -86,5 +77,4 @@ $(() => {
 	calcEvt();
 	closureEvt();
 	observerEvt();
-	observerFormEvt();
 });

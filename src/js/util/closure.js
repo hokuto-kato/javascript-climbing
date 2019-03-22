@@ -1,3 +1,4 @@
+// URLのパラメータをオブジェクトや配列で返す
 export default function() {
 	var SplitQueryString = (function() {
 		var queryString = location.search;
@@ -27,6 +28,6 @@ export default function() {
 	})();
 
 	// ex: URLがhttp://example.com?hoge=hogehogeの場合
-	console.log(SplitQueryString.toArray());
+	console.log(SplitQueryString.toObj());
 	SplitQueryString.toObj() // {hoge: "hogehoge"}
 }
