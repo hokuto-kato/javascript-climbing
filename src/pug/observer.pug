@@ -15,5 +15,11 @@ html(lang='ja')
 		include include/_css
 	body
 		#observer(data-target-observer)
+			ul.errors
+			form
+				label(for="title") title
+				input#title.title(type="text")
+				label(for="body") body
+				input#body.body(type="text")
 
 		include include/_js

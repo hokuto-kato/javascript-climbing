@@ -1,42 +1,87 @@
-export default class {
+import $ from "jquery";
+
+class ValidatorView {
 	constructor() {
-		//監視者を格納するための空のthis.listeners配列を作成します
-		this.listeners = [];
-		this.handleEvent();
+		this.model = new ValidatorModel();
+		this.$title = $(".title");
+		this.$body = $(".body");
+		this.addListeners();
 	}
 
-	// onメソッドはthis.listenersにイベントを通知したい関数を追加します。
-	on(func) {
-		this.listeners.push(func);
+	addListeners() {
+		this.$title.on("keyup", e => {
+			this.model.setTitle($(e.currentTarget).val());
+		});
+
+		this.$body.on("keyup", e => {
+			this.model.setBody($(e.currentTarget).val());
+		});
+		
+		//
+		this.model.addValidateListener(this.displayErrors);
 	}
 
-	//offメソッドは指定されたオブサーバーを検索しリストから削除します。
-	off(func) {
-		let len = this.listeners.length;
-		for(let i = 0; i < len; i++) {
-			let listener = this.listeners[i];
-			if(listener === func) {
-				this.listeners.splice(i, 1);
-			}
+	displayErrors() {
+		$(".errors").text("");
+		let errors = this.errors;
+		let errorStr = "";
+		if(errors.length === 0) return;
+
+		for(let i = 0; i < errors.length; i++) {
+			errorStr += `<li>${errors[i]}</li>`;
 		}
-	}
 
-	//最後にtriggerというクラスメソッドを作成します。
-	//triggerメソッドはオブザーバーのリスト全体を反復処理し、実行します。
-	trigger(event) {
-		let len = this.listeners.length;
-		for(let i = 0; i < len; i++) {
-			let listener = this.listeners[i];
-			listener();
-		}
-	}
-
-	greet() {
-		console.log("Good Morning");
-	}
-
-	handleEvent() {
-		this.on(this.greet);
-		this.trigger(); //Good Morning
+		$(".errors").append(errorStr);
 	}
 }
+
+class ValidatorModel {
+	constructor() {
+		this.title = "";
+		this.titleMinLength = 1;
+		this.titleMaxLength = 10;
+		this.body = "";
+		this.bodyMinLength = 1;
+		this.bodyMaxLength = 30;
+		this.errors = [];
+		this.validateListener = () => {};
+	}
+
+	setTitle(title) {
+		this.title = title;
+		this.valid();
+	}
+
+	setBody(body) {
+		this.body = body;
+		this.valid();
+	}
+
+	addValidateListener(listener) {
+		this.validateListener = listener;
+	}
+
+	valid() {
+		this.errors = [];
+
+		if(this.title.length < this.titleMinLength) {
+			this.errors.push(`タイトルは${this.titleMinLength}文字以上でご入力ください`)
+		}
+
+		if(this.title.length > this.titleMaxLength) {
+			this.errors.push(`タイトルは${this.titleMaxLength}文字以下でご入力ください`)
+		}
+
+		if(this.body.length < this.bodyMinLength) {
+			this.errors.push(`本文は${this.bodyMinLength}文字以上でご入力ください`)
+		}
+
+		if(this.body.length > this.bodyMaxLength) {
+			this.errors.push(`本文は${this.bodyMaxLength}文字以下でご入力ください`)
+		}
+
+		this.validateListener();
+	}
+}
+
+export {ValidatorView};

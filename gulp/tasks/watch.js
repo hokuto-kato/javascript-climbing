@@ -37,7 +37,7 @@ gulp.task('imageDest', (cb) => {
 
 gulp.task("watch", () => {
 	watch([`${paths.js_src}app.js`,`${paths.js_src}util/**/*.js`], () => {gulp.start("webpack");});
-	watch([`${paths.stylus_src}`], () => {gulp.start("stylus");});
+	watch([`${paths.stylus_src}/**/*`], () => {gulp.start("stylus");});
 	watch([`${paths.pug_src}`], () => {gulp.start("pugDest");});
 	watch([`${paths.img_src}*`], () => {gulp.start("imageDest");});
 });

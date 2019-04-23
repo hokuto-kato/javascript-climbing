@@ -7,7 +7,7 @@ import stopWatchClass from './util/stopWatchClass'
 import form from './util/form'
 import calc from './util/calc'
 import closure from './util/closure'
-import observer from './util/observer'
+import {ValidatorView} from './util/observer'
 
 const target = {
 	form: $('[data-target-form]'),
@@ -64,7 +64,7 @@ const closureEvt = () =>{
 
 const observerEvt = () => {
 	if(!target.observer.length) return;
-	new observer();
+	new ValidatorView();
 };
 
 $(() => {
