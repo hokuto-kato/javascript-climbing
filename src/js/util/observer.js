@@ -17,7 +17,6 @@ class ValidatorView {
 			this.model.setBody($(e.currentTarget).val());
 		});
 		
-		//
 		this.model.addValidateListener(this.displayErrors);
 	}
 
@@ -57,6 +56,7 @@ class ValidatorModel {
 		this.valid();
 	}
 
+	//model側はview側にある「エラーを表示する」というメソッドしか知らない
 	addValidateListener(listener) {
 		this.validateListener = listener;
 	}
