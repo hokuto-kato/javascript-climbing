@@ -16,6 +16,10 @@ export default class {
 	addition() {
 		return this.valueLeftNum + this.valueRightNum;
 	}
+	
+	subtraction(){
+			return this.valueLeftNum - this.valueRightNum;
+	}
 
 	multiplication() {
 		return this.valueLeftNum * this.valueRightNum;
@@ -29,6 +33,7 @@ export default class {
 	displayResult() {
 		const resultTemplate = `
 <p class="p-calc__result__body">${this.valueLeftNum}+${this.valueRightNum}=${this.addition()}</p>
+<p class="p-calc__result__body">${this.valueLeftNum}-${this.valueRightNum}=${this.subtraction()}</p>
 <p class="p-calc__result__body">${this.valueLeftNum}×${this.valueRightNum}=${this.multiplication()}</p>
 <p class="p-calc__result__body">${this.valueLeftNum}÷${this.valueRightNum}=${this.division()}</p>
 `;
